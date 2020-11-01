@@ -1,0 +1,132 @@
+{
+  "name": "sub-react17-webpack5",
+  "version": "2.2.0",
+  "description": "```bash\r npm install\r ```",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node ./config/dev-server.js",
+    "start:mock": "concurrently \"node ./server/mockDaemon.js\" \"node ./config/dev-server.js\" ",
+    "start:old": "webpack-dev-server --config ./config/webpack.dev.js",
+    "ana": "cross-env NODE_ENV=ana webpack --config ./config/webpack.pro.js",
+    "build": "webpack --config ./config/webpack.pro.js",
+    "dev-build": "webpack --config ./config/webpack.dev.js",
+    "dll": "webpack --config ./config/webpack.dll.js",
+    "eslint": "eslint --ext .js --ext .jsx src",
+    "lint:prettier": "prettier --check \"**/*.{ts,js,jsx,css,less,scss,json}\" --end-of-line auto",
+    "prettier": "prettier -c --write \"**/*.{ts,js,jsx,css,less,scss,json}\"",
+    "release:prerelease": "standard-version --prerelease",
+    "release:prefix": "standard-version --prerelease alpha",
+    "release:patch": "standard-version --release-as patch && git push origin master",
+    "release:minor": "standard-version --release-as minor && git push --follow-tags origin master",
+    "release:major": "standard-version --release-as major && git push --follow-tags origin master"
+  },
+  "keywords": [
+    "react",
+    "dva",
+    "webpack",
+    "antd",
+    "less",
+    "eslint",
+    "dll",
+    "es6",
+    "mock",
+    "pwa"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chandq/react-frame.git"
+  },
+  "author": "chendq",
+  "license": "ISC",
+  "dependencies": {
+    "@ant-design/compatible": "^1.0.4",
+    "antd": "^4.7.2",
+    "axios": "^0.20.0",
+    "core-js": "^3.6.5",
+    "dva": "^2.4.1",
+    "fs": "0.0.2",
+    "history": "^5.0.0",
+    "keymaster": "^1.6.2",
+    "react": "^17.0.0",
+    "react-router": "^5.2.0",
+    "react-dom": "^17.0.0",
+    "react-router-dom": "^5.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "@babel/plugin-proposal-class-properties": "^7.12.1",
+    "@babel/plugin-proposal-decorators": "^7.12.1",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.1",
+    "@babel/preset-react": "^7.12.1",
+    "@commitlint/cli": "^11.0.0",
+    "@commitlint/config-conventional": "^11.0.0",
+    "add-asset-html-webpack-plugin": "^3.1.3",
+    "autoprefixer": "^9.7.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-import": "^1.13.1",
+    "clean-webpack-plugin": "^3.0.0",
+    "concurrently": "^5.2.0",
+    "connect-history-api-fallback": "^1.6.0",
+    "copy-webpack-plugin": "^6.2.1",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.2",
+    "css-loader": "^5.0.0",
+    "eslint": "^7.11.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-react": "^7.21.5",
+    "express": "^4.17.1",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.5.0",
+    "husky": "^4.3.0",
+    "less": "^3.12.2",
+    "less-loader": "^7.0.2",
+    "lint-staged": "^10.4.2",
+    "mini-css-extract-plugin": "^1.1.1",
+    "mockjs": "^1.1.0",
+    "nodemon": "^2.0.4",
+    "optimize-css-assets-webpack-plugin": "^5.0.3",
+    "postcss-loader": "^4.0.4",
+    "postcss-px2rem-exclude": "^0.0.6",
+    "preload-webpack-plugin": "^3.0.0-beta.4",
+    "prettier": "^2.1.2",
+    "prop-types": "^15.7.2",
+    "standard-version": "^9.0.0",
+    "style-loader": "^2.0.0",
+    "terser-webpack-plugin": "^5.0.0",
+    "url-loader": "^4.1.0",
+    "webpack": "^5.1.3",
+    "webpack-bundle-analyzer": "^3.9.0",
+    "webpack-cli": "^4.1.0",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.11.0",
+    "webpack-hot-middleware": "^2.25.0",
+    "webpack-merge": "^5.2.0",
+    "webpackbar": "^4.0.0",
+    "workbox-webpack-plugin": "^5.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged",
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,vue}": [
+      "eslint"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
+  },
+  "engines": {
+    "node": ">=12.0.0"
+  }
+}
